@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/output.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <style>
+      .card-container {
+        transition: transform 0.5s;
+      }
+
+      .card-container:hover {
+        transform: rotateY(180deg);
+      }
+
+      .card {
+        transform-style: preserve-3d;
+        transition: transform 0.5s;
+      }
+
+      .card-inner {
+        transform: rotateY(0deg);
+      }
+
+      .card:hover .card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .slider-container {
+        position: relative;
+        overflow: hidden;
+        max-width: 100vw;
+    }
+
+    .slider-item {
+        text-align: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw; /* Set the width to 100% */
+        height: 350px; /* Set the height to 300px */
+    }
+
+    .slider-item img {
+        width: 100vw;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .content-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+
+    .content-overlay section {
+        background: none; /* Remove the background */
+    }
+
+    @media screen and (max-width: 766px){
+        .content-overlay {
+          position: absolute;
+          top: 52%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          color: white;
+      }
+
+      .content-overlay h1{
+        font-size: 2.5rem;
+      }
+      
+
+    }
+    </style>
+
+    <!-- navbar  -->
+
+    <nav class="navbar">
+      <div class="logo">SAZ</div>
+      <ul class="nav-links" id="navLinks">
+          <li><a href="./home.html" class="nav-link">Home</a></li>
+          <li><a href="./about.html" class="nav-link">About</a></li>
+          <li><a href="./plans.html" class="nav-link">Plans</a></li>
+          <li><a href="./gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="./trainers.html" class="nav-link">Trainers</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="/login" class="login-btn">LOGOUT</a>
+      <div class="hamburger-menu" onclick="toggleNavMenu()">&#9776;</div>
+  </nav>
+  
+
+    <!-- navbar  -->
+
+    <div class="slider-container mx-auto my-12">
+      <div class="slider-item">
+          <!-- Image 1 -->
+          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3ltfGVufDB8fDB8fHww" alt="Image 1">
+          <div class="content-overlay">
+              <section class="md:w-[90%] lg:w-[70%] mx-auto">
+                  <div class="px-2 py-16 text-center">
+                      <h1 class="text-6xl font-bold mb-4">GYM GALLERY</h1>
+                      <p class="text-xl mb-7 sm:px-[25px]">
+                          Explore our vibrant gym through captivating images and see the dynamic workouts that define our fitness space.
+                      </p>
+                      <a href="#" class="inline-block px-4 py-2 text-2xl mt-2 font-bold text-white bg-blue-500 rounded">View Gallery</a>
+                  </div>
+              </section>
+          </div>
+      </div>
+      <div class="slider-item" style="display: none;">
+          <!-- Image 2 -->
+          <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGd5bXxlbnwwfHwwfHx8MA%3D%3D" alt="Image 2">
+          <div class="content-overlay">
+              <section class="md:w-[90%] lg:w-[70%] mx-auto">
+                  <div class="px-2 py-16 text-center">
+                      <h1 class="text-6xl font-bold mb-4">GYM GALLERY</h1>
+                      <p class="text-xl mb-7 sm:px-[25px]">
+                          Take a virtual tour of our gym and witness the vibrant community and dynamic workouts that define our fitness space.
+                      </p>
+                      <a href="#" class="inline-block px-4 py-2 text-2xl mt-2 font-bold text-white bg-blue-500 rounded">View Gallery</a>
+                  </div>
+              </section>
+          </div>
+      </div>
+      <div class="slider-item" style="display: none;">
+          <!-- Image 3 -->
+          <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGd5bXxlbnwwfHwwfHx8MA%3D%3D" alt="Image 3">
+          <div class="content-overlay">
+              <section class="md:w-[90%] lg:w-[70%] mx-auto">
+                  <div class="px-2 py-16 text-center">
+                      <h1 class="text-6xl font-bold mb-4">GYM GALLERY</h1>
+                      <p class="text-xl mb-7 sm:px-[25px]">
+                          Immerse yourself in the visual journey of our gym and experience the dedication that defines our fitness community.
+                      </p>
+                      <a href="#" class="inline-block px-4 py-2 text-2xl mt-2 font-bold text-white bg-blue-500 rounded">View Gallery</a>
+                  </div>
+              </section>
+          </div>
+      </div>
+  </div>
+  
+
+    <!-- gallery  -->
+
+    <section class="bg-white font-sans">
+      <div class="container mx-auto py-16">
+        <!-- Gym Machines Section -->
+        <section class="mb-12">
+          <h1 class="text-5xl font-semibold mb-4 text-black">Gym Machines</h1>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-2"
+          >
+            <!-- Replace the image URLs with your actual image URLs -->
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1589579234072-d9b970f903be?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODZ8fGd5bSUyMG1hY2hpbmVzfGVufDB8fDB8fHww"
+                    alt="Gym Machine 1"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container h-max overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1608947325823-976b1c65d14c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTV8fGd5bSUyMG1hY2hpbmVzfGVufDB8fDB8fHww"
+                    alt="Gym Machine 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1585484764802-387ea30e8432?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fGd5bSUyMG1hY2hpbmVzfGVufDB8fDB8fHww"
+                    alt="Gym Machine 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1585484764802-387ea30e8432?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fGd5bSUyMG1hY2hpbmVzfGVufDB8fDB8fHww"
+                    alt="Gym Machine 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1646656130630-07af3a262a9b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjB8fGd5bSUyMG1hY2hpbmVzfGVufDB8fDB8fHww"
+                    alt="Gym Machine 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1614091245052-8b2b374b646d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAwfHxneW0lMjBtYWNoaW5lc3xlbnwwfHwwfHx8MA%3D%3D"
+                    alt="Gym Machine 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1693214674451-2111f7690877?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fGd5bSUyMG1hY2hpbmVzfGVufDB8fDB8fHww"
+                    alt="Gym Machine 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1693214674451-d6bd02e642d1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGd5bSUyMG1hY2hpbmVzfGVufDB8fDB8fHww"
+                    alt="Gym Machine 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1593476123561-9516f2097158?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTh8fGd5bSUyMG1hY2hpbmVzfGVufDB8fDB8fHww"
+                    alt="Gym Machine 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Add more card containers as needed -->
+          </div>
+        </section>
+
+        <!-- Training Section -->
+        <section>
+          <h1 class="text-5xl font-semibold mb-4 text-black">
+            Training in Action
+          </h1>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-2"
+          >
+            <!-- Replace the image URLs with your actual image URLs -->
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://plus.unsplash.com/premium_photo-1661284998331-56c7d22c0dc3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTN8fGd5bSUyMHRyYWluZXJzfGVufDB8fDB8fHww"
+                    alt="Training 1"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1533560696583-6441b753a16a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fGd5bSUyMHRyYWluZXJzfGVufDB8fDB8fHww"
+                    alt="Training 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1517931524326-bdd55a541177?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGd5bSUyMHRyYWluZXJzfGVufDB8fDB8fHww"
+                    alt="Training 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1533560974115-3c8b3b6a0082?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGd5bSUyMHRyYWluZXJzfGVufDB8fDB8fHww"
+                    alt="Training 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://plus.unsplash.com/premium_photo-1664475815498-c61cd17ff387?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fGd5bSUyMHRyYWluZXJzfGVufDB8fDB8fHww"
+                    alt="Training 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGd5bSUyMHRyYWluZXJzfGVufDB8fDB8fHww"
+                    alt="Training 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://plus.unsplash.com/premium_photo-1661274078120-aa76453212bd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Z3ltJTIwdHJhaW5lcnN8ZW58MHx8MHx8fDA%3D"
+                    alt="Training 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1690908719300-83ae9ebac394?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTc5fHxneW0lMjBtYWNoaW5lc3xlbnwwfHwwfHx8MA%3D%3D"
+                    alt="Training 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container overflow-hidden rounded-lg hover:shadow-xl"
+            >
+              <div class="card">
+                <div class="card-inner">
+                  <img
+                    src="https://images.unsplash.com/photo-1690908719300-83ae9ebac394?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTc5fHxneW0lMjBtYWNoaW5lc3xlbnwwfHwwfHx8MA%3D%3D"
+                    alt="Training 2"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Add more card containers as needed -->
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content">
+        <!-- Useful Links -->
+        <div class="useful-links">
+          <div class="link-category">
+            <h3>General</h3>
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Blog</a>
+          </div>
+
+          <div class="link-category">
+            <h3>Fitness</h3>
+            <a href="#">Services</a>
+            <a href="#">Class Schedule</a>
+            <a href="#">Trainer Profiles</a>
+            <a href="#">Testimonials</a>
+          </div>
+
+          <div class="link-category">
+            <h3>Membership</h3>
+            <a href="#">Membership Plans</a>
+            <a href="#">Join Us</a>
+            <a href="#">Benefits</a>
+            <a href="#">FAQs</a>
+          </div>
+
+          <div class="link-category">
+            <h3>Connect</h3>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">Facebook</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </div>
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+          <h2>Follow us</h2>
+          <a href="https://www.instagram.com" target="_blank"
+            ><i class="fa-brands fa-square-instagram"></i
+          ></a>
+          <a href="https://www.instagram.com" target="_blank"
+            ><i class="fa-brands fa-square-facebook"></i
+          ></a>
+          <a href="https://www.instagram.com" target="_blank"
+            ><i class="fa-brands fa-square-twitter"></i
+          ></a>
+          <a href="https://www.instagram.com" target="_blank"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </div>
+      </div>
+
+      <!-- Copyright Statement -->
+      <div class="copyright">
+        <p>&copy; 2023 SAZ. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      $(document).ready(function () {
+          // Set the initial slide index
+          var currentSlide = 0;
+  
+          // Function to show the current slide
+          function showSlide(index) {
+              $(".slider-item").hide();
+              $(".slider-item:eq(" + index + ")").fadeIn();
+          }
+  
+          // Function to handle automatic slide change
+          function autoSlide() {
+              currentSlide = (currentSlide + 1) % 3;
+              showSlide(currentSlide);
+          }
+  
+          // Show the first slide initially
+          showSlide(currentSlide);
+  
+          // Set interval for automatic slide change (adjust the interval as needed)
+          var interval = setInterval(autoSlide, 2000);
+  
+          // Stop automatic slide change on hover
+          $(".slider-container").hover(
+              function () {
+                  clearInterval(interval);
+              },
+              function () {
+                  interval = setInterval(autoSlide, 3000);
+              }
+          );
+      });
+  </script>
+
+    <script defer src="/js/script.js"></script>
+    
+    
+  </body>
+</html>

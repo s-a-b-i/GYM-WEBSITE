@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/output.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <title>Document</title>
+  </head>
+  <style>
+    .slider-container {
+        position: relative;
+        overflow: hidden;
+        max-width: 100vw;
+    }
+
+    .slider-item {
+        text-align: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw; /* Set the width to 100% */
+        height: 350px; /* Set the height to 300px */
+    }
+
+    .slider-item img {
+        width: 100vw;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .content-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+
+    .content-overlay section {
+        background: none; /* Remove the background */
+    }
+
+    @media screen and (max-width: 766px){
+        .content-overlay {
+          position: absolute;
+          top: 52%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          color: white;
+      }
+
+      .content-overlay h1{
+        font-size: 2.5rem;
+      }
+      
+
+    }
+      
+</style>
+
+  <body>
+    <!-- navbar  -->
+
+    <nav class="navbar">
+      <div class="logo">SAZ</div>
+      <ul class="nav-links" id="navLinks">
+          <li><a href="./home.html" class="nav-link">Home</a></li>
+          <li><a href="./about.html" class="nav-link">About</a></li>
+          <li><a href="./plans.html" class="nav-link">Plans</a></li>
+          <li><a href="./gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="./trainers.html" class="nav-link">Trainers</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="/login" class="login-btn">LOGOUT</a>
+      <div class="hamburger-menu" onclick="toggleNavMenu()">&#9776;</div>
+  </nav>
+  
+
+    <!-- header  -->
+
+    <div class="slider-container mx-auto my-12">
+      <div class="slider-item">
+          <!-- Plan 1 -->
+          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3ltfGVufDB8fDB8fHww" alt="Plan 1">
+          <div class="content-overlay">
+              <section class="md:w-[90%] lg:w-[70%] mx-auto">
+                  <div class="px-2 py-16 text-center">
+                      <h1 class="text-6xl font-bold mb-4">OUR PLANS</h1>
+                      <p class="text-xl mb-7 sm:px-[25px]">
+                          Choose a fitness plan that suits your goals. Our expert trainers are here to guide you.
+                      </p>
+                      <a href="#" class="inline-block px-4 py-2 text-2xl mt-2 font-bold text-white bg-blue-500 rounded">View Plans</a>
+                  </div>
+              </section>
+          </div>
+      </div>
+      <div class="slider-item" style="display: none;">
+          <!-- Plan 2 -->
+          <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGd5bXxlbnwwfHwwfHx8MA%3D%3D" alt="Plan 2">
+          <div class="content-overlay">
+              <section class="md:w-[90%] lg:w-[70%] mx-auto">
+                  <div class="px-2 py-16 text-center">
+                      <h1 class="text-6xl font-bold mb-4">OUR PLANS</h1>
+                      <p class="text-xl mb-7 sm:px-[25px]">
+                          Discover flexible membership plans designed to fit your schedule and preferences.
+                      </p>
+                      <a href="#" class="inline-block px-4 py-2 text-2xl mt-2 font-bold text-white bg-blue-500 rounded">View Plans</a>
+                  </div>
+              </section>
+          </div>
+      </div>
+      <div class="slider-item" style="display: none;">
+          <!-- Plan 3 -->
+          <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGd5bXxlbnwwfHwwfHx8MA%3D%3D" alt="Plan 3">
+          <div class="content-overlay">
+              <section class="md:w-[90%] lg:w-[70%] mx-auto">
+                  <div class="px-2 py-16 text-center">
+                      <h1 class="text-6xl font-bold mb-4">OUR PLANS</h1>
+                      <p class="text-xl mb-7 sm:px-[25px]">
+                          Join today and access a variety of fitness plans tailored to your needs and preferences.
+                      </p>
+                      <a href="#" class="inline-block px-4 py-2 text-2xl mt-2 font-bold text-white bg-blue-500 rounded">View Plans</a>
+                  </div>
+              </section>
+          </div>
+      </div>
+  </div>
+  
+
+    <!-- plans  -->
+
+    <section class="bg-white">
+      <div class="container mx-auto py-8">
+        <div class="flex flex-wrap">
+          <!-- Plan 1 -->
+          <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+            <div
+              class="bg-gray-100 border border-gray-300 rounded-lg p-6 hover:bg-blue-300 hover:border-white transition-all"
+            >
+              <h2
+                class="text-2xl font-bold mb-4 text-gray-700 hover:text-white transition-all"
+              >
+                Basic Plan
+              </h2>
+              <p class="text-gray-700 mb-4">Perfect for beginners</p>
+              <p class="text-3xl font-bold text-black hover:text-white mb-4">
+                $19.99
+              </p>
+              <ul class="list-disc list-inside">
+                <li class="text-green-700">Access to gym equipment</li>
+                <li class="text-green-700">Personal trainer sessions</li>
+                <li class="text-gray-600 line-through">Sauna access</li>
+                <!-- Add more features here -->
+              </ul>
+              <button
+                class="mt-4 bg-blue-500 text-white py-2 px-4 hover:bg-white hover:text-blue-500 border border-blue-500 rounded transition-all"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+            <div
+              class="bg-gray-100 border border-gray-300 rounded-lg p-6 hover:bg-blue-300 hover:border-white transition-all"
+            >
+              <h2
+                class="text-2xl font-bold mb-4 text-gray-700 hover:text-white transition-all"
+              >
+                Basic Plan
+              </h2>
+              <p class="text-gray-700 mb-4">Perfect for beginners</p>
+              <p class="text-3xl font-bold text-black hover:text-white mb-4">
+                $19.99
+              </p>
+              <ul class="list-disc list-inside">
+                <li class="text-green-700">Access to gym equipment</li>
+                <li class="text-green-700">Personal trainer sessions</li>
+                <li class="text-gray-600 line-through">Sauna access</li>
+                <!-- Add more features here -->
+              </ul>
+              <button
+                class="mt-4 bg-blue-500 text-white py-2 px-4 hover:bg-white hover:text-blue-500 border border-blue-500 rounded transition-all"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+            <div
+              class="bg-gray-100 border border-gray-300 rounded-lg p-6 hover:bg-blue-300 hover:border-white transition-all"
+            >
+              <h2
+                class="text-2xl font-bold mb-4 text-gray-700 hover:text-white transition-all"
+              >
+                Basic Plan
+              </h2>
+              <p class="text-gray-700 mb-4">Perfect for beginners</p>
+              <p class="text-3xl font-bold text-black hover:text-white mb-4">
+                $19.99
+              </p>
+              <ul class="list-disc list-inside">
+                <li class="text-green-700">Access to gym equipment</li>
+                <li class="text-green-700">Personal trainer sessions</li>
+                <li class="text-gray-600 line-through">Sauna access</li>
+                <!-- Add more features here -->
+              </ul>
+              <button
+                class="mt-4 bg-blue-500 text-white py-2 px-4 hover:bg-white hover:text-blue-500 border border-blue-500 rounded transition-all"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+            <div
+              class="bg-gray-100 border border-gray-300 rounded-lg p-6 hover:bg-blue-300 hover:border-white transition-all"
+            >
+              <h2
+                class="text-2xl font-bold mb-4 text-gray-700 hover:text-white transition-all"
+              >
+                Basic Plan
+              </h2>
+              <p class="text-gray-700 mb-4">Perfect for beginners</p>
+              <p class="text-3xl font-bold text-black hover:text-white mb-4">
+                $19.99
+              </p>
+              <ul class="list-disc list-inside">
+                <li class="text-green-700">Access to gym equipment</li>
+                <li class="text-green-700">Personal trainer sessions</li>
+                <li class="text-gray-600 line-through">Sauna access</li>
+                <!-- Add more features here -->
+              </ul>
+              <button
+                class="mt-4 bg-blue-500 text-white py-2 px-4 hover:bg-white hover:text-blue-500 border border-blue-500 rounded transition-all"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+            <div
+              class="bg-gray-100 border border-gray-300 rounded-lg p-6 hover:bg-blue-300 hover:border-white transition-all"
+            >
+              <h2
+                class="text-2xl font-bold mb-4 text-gray-700 hover:text-white transition-all"
+              >
+                Basic Plan
+              </h2>
+              <p class="text-gray-700 mb-4">Perfect for beginners</p>
+              <p class="text-3xl font-bold text-black hover:text-white mb-4">
+                $19.99
+              </p>
+              <ul class="list-disc list-inside">
+                <li class="text-green-700">Access to gym equipment</li>
+                <li class="text-green-700">Personal trainer sessions</li>
+                <li class="text-gray-600 line-through">Sauna access</li>
+                <!-- Add more features here -->
+              </ul>
+              <button
+                class="mt-4 bg-blue-500 text-white py-2 px-4 hover:bg-white hover:text-blue-500 border border-blue-500 rounded transition-all"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+            <div
+              class="bg-gray-100 border border-gray-300 rounded-lg p-6 hover:bg-blue-300 hover:border-white transition-all"
+            >
+              <h2
+                class="text-2xl font-bold mb-4 text-gray-700 hover:text-white transition-all"
+              >
+                Basic Plan
+              </h2>
+              <p class="text-gray-700 mb-4">Perfect for beginners</p>
+              <p class="text-3xl font-bold text-black hover:text-white mb-4">
+                $19.99
+              </p>
+              <ul class="list-disc list-inside">
+                <li class="text-green-700">Access to gym equipment</li>
+                <li class="text-green-700">Personal trainer sessions</li>
+                <li class="text-gray-600 line-through">Sauna access</li>
+                <!-- Add more features here -->
+              </ul>
+              <button
+                class="mt-4 bg-blue-500 text-white py-2 px-4 hover:bg-white hover:text-blue-500 border border-blue-500 rounded transition-all"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+            <div
+              class="bg-gray-100 border border-gray-300 rounded-lg p-6 hover:bg-blue-300 hover:border-white transition-all"
+            >
+              <h2
+                class="text-2xl font-bold mb-4 text-gray-700 hover:text-white transition-all"
+              >
+                Basic Plan
+              </h2>
+              <p class="text-gray-700 mb-4">Perfect for beginners</p>
+              <p class="text-3xl font-bold text-black hover:text-white mb-4">
+                $19.99
+              </p>
+              <ul class="list-disc list-inside">
+                <li class="text-green-700">Access to gym equipment</li>
+                <li class="text-green-700">Personal trainer sessions</li>
+                <li class="text-gray-600 line-through">Sauna access</li>
+                <!-- Add more features here -->
+              </ul>
+              <button
+                class="mt-4 bg-blue-500 text-white py-2 px-4 hover:bg-white hover:text-blue-500 border border-blue-500 rounded transition-all"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+            <div
+              class="bg-gray-100 border border-gray-300 rounded-lg p-6 hover:bg-blue-300 hover:border-white transition-all"
+            >
+              <h2
+                class="text-2xl font-bold mb-4 text-gray-700 hover:text-white transition-all"
+              >
+                Basic Plan
+              </h2>
+              <p class="text-gray-700 mb-4">Perfect for beginners</p>
+              <p class="text-3xl font-bold text-black hover:text-white mb-4">
+                $19.99
+              </p>
+              <ul class="list-disc list-inside">
+                <li class="text-green-700">Access to gym equipment</li>
+                <li class="text-green-700">Personal trainer sessions</li>
+                <li class="text-gray-600 line-through">Sauna access</li>
+                <!-- Add more features here -->
+              </ul>
+              <button
+                class="mt-4 bg-blue-500 text-white py-2 px-4 hover:bg-white hover:text-blue-500 border border-blue-500 rounded transition-all"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content">
+        <!-- Useful Links -->
+        <div class="useful-links">
+          <div class="link-category">
+            <h3>General</h3>
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Blog</a>
+          </div>
+
+          <div class="link-category">
+            <h3>Fitness</h3>
+            <a href="#">Services</a>
+            <a href="#">Class Schedule</a>
+            <a href="#">Trainer Profiles</a>
+            <a href="#">Testimonials</a>
+          </div>
+
+          <div class="link-category">
+            <h3>Membership</h3>
+            <a href="#">Membership Plans</a>
+            <a href="#">Join Us</a>
+            <a href="#">Benefits</a>
+            <a href="#">FAQs</a>
+          </div>
+
+          <div class="link-category">
+            <h3>Connect</h3>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">Facebook</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </div>
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+          <h2>Follow us</h2>
+          <a href="https://www.instagram.com" target="_blank"
+            ><i class="fa-brands fa-square-instagram"></i
+          ></a>
+          <a href="https://www.instagram.com" target="_blank"
+            ><i class="fa-brands fa-square-facebook"></i
+          ></a>
+          <a href="https://www.instagram.com" target="_blank"
+            ><i class="fa-brands fa-square-twitter"></i
+          ></a>
+          <a href="https://www.instagram.com" target="_blank"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </div>
+      </div>
+
+      <!-- Copyright Statement -->
+      <div class="copyright">
+        <p>&copy; 2023 SAZ. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      $(document).ready(function () {
+          // Set the initial slide index
+          var currentSlide = 0;
+  
+          // Function to show the current slide
+          function showSlide(index) {
+              $(".slider-item").hide();
+              $(".slider-item:eq(" + index + ")").fadeIn();
+          }
+  
+          // Function to handle automatic slide change
+          function autoSlide() {
+              currentSlide = (currentSlide + 1) % 3;
+              showSlide(currentSlide);
+          }
+  
+          // Show the first slide initially
+          showSlide(currentSlide);
+  
+          // Set interval for automatic slide change (adjust the interval as needed)
+          var interval = setInterval(autoSlide, 2000);
+  
+          // Stop automatic slide change on hover
+          $(".slider-container").hover(
+              function () {
+                  clearInterval(interval);
+              },
+              function () {
+                  interval = setInterval(autoSlide, 3000);
+              }
+          );
+      });
+  </script>
+
+    <script defer src="/js/script.js"></script>
+   
+    
+  </body>
+</html>

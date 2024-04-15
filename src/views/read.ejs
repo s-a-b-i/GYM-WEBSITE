@@ -1,0 +1,130 @@
+<!-- views/read.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read Data</title>
+  <!-- <link rel="stylesheet" href="/css/styles.css"> -->
+  <style>
+    body {
+      background-color: #080710;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #2c3e50;
+      color: #fff;
+    }
+
+    td a {
+      text-decoration: none;
+      color: #3498db;
+    }
+
+    td a:hover {
+      text-decoration: underline;
+    }
+
+    td button.delete {
+      background-color: #e74c3c;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    td button.delete:hover {
+      background-color: #c0392b;
+    }
+
+    td button.update {
+      background-color: #27ae60;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    td button.update:hover {
+      background-color: #219a52;
+    }
+
+    button.go-home {
+      margin-top: 20px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button.go-home:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Member Information</h1>
+
+  <% if (members && members.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Contact Number</th>
+          <th>Delete</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% members.forEach(function(member) { %>
+          <tr>
+            <td><%= member.id %></td>
+            <td><%= member.name %></td>
+            <td><%= member.email %></td>
+            <td><%= member.address %></td>
+            <td><%= member.contactno %></td>
+            <td><button class="delete" onclick="window.location.href='/delete?id=<%= member.id %>'">Delete</button></td>
+            <td><button class="update" onclick="window.location.href='/update?id=<%= member.id %>'">Update</button></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>No members found.</p>
+  <% } %>
+
+  <button class="go-home" onclick="window.location.href='/'">Go back to home</button>
+</body>
+</html>
